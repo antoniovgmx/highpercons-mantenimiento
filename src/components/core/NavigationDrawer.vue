@@ -100,6 +100,18 @@
           </v-list-tile-action>
           <v-list-tile-title :class="[{'active': selectedIndex === 14}, 'item-title' ]">Pareto de Fallas</v-list-tile-title>
         </v-list-tile>
+        <v-list-tile @click="changeRoute('costoTallerExterno', 15)">
+          <v-list-tile-action>
+            <v-icon>ssid_chart</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 15}, 'item-title' ]">Costo de taller externo</v-list-tile-title>
+        </v-list-tile>
+        <v-list-tile @click="changeRoute('rescatesPorMes', 16)">
+          <v-list-tile-action>
+            <v-icon>ssid_chart</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 16}, 'item-title' ]">Rescates por mes</v-list-tile-title>
+        </v-list-tile>
       </v-list-group>
       
 

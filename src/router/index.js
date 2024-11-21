@@ -28,6 +28,8 @@ import DwellTime from '../pages/DwellTime.vue'
 import CumplimientoPreventivo from '../pages/CumplimientoPreventivo.vue'
 
 import ParetoDeFallas from '../pages/ParetoDeFallas.vue'
+import CostoTallerExterno from '../pages/CostoTallerExterno.vue'
+import RescatesPorMes from '../pages/RescatesPorMes.vue'
 
 
 
@@ -177,6 +179,28 @@ export default new Router({
       meta: {
         breadcrumb: [
           { name: 'Pareto de Fallas' }
+        ]
+      }
+    },
+
+    {
+      path: '/costoTallerExterno',
+      name: 'costoTallerExterno',
+      component: CostoTallerExterno,
+      meta: {
+        breadcrumb: [
+          { name: 'Costo Taller Externo' }
+        ]
+      }
+    },
+
+    {
+      path: '/rescatesPorMes',
+      name: 'rescatesPorMes',
+      component: RescatesPorMes,
+      meta: {
+        breadcrumb: [
+          { name: 'Rescates Por Mes' }
         ]
       }
     },

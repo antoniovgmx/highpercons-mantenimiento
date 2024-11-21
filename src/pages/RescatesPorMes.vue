@@ -3,18 +3,16 @@
     <v-layout row wrap>
       <!-- Widgets-->
       <v-flex d-flex lg6 sm6 xs12>
-        <widget icon="health_and_safety " title="$1,200,000" subTitle="Mantenimiento Preventivo" supTitle="14 Eventos" color="#5EB761"/>
+        <widget icon="dangerous" title="11 incidentes" supTitle="Total de rescates este mes" color="#5EB761"/>
       </v-flex>
       <v-flex d-flex lg6 sm6 xs12>
-        <widget icon="dangerous" title="$540,000" subTitle="Mantenimiento Correctivo" supTitle="4 Eventos" color="#F44336"/>
+        <widget icon="health_and_safety " title="$1,475,000" supTitle="Suma de costo de rescates" color="#F44336"/>
       </v-flex>
-      
       <v-flex d-flex lg12 sm6 xs12>
         <v-card class="elevation-2" style="max-width: none;" flat>
           <apex-chart :chartOptions="chartOptions" :chartData="chartData"/>
         </v-card>    
       </v-flex>
-
     </v-layout>
   </v-container>
 </template>
@@ -23,20 +21,17 @@
   export default {
     data() {
       return {
-        chartData: [
-          {
-            name: 'Mantenimiento Preventivo',
-            type: 'line',
-            color: "#5EB761",
-            data: [271247, 402740, 430162, 633420, 885178, 1250170, 1344168, 1387252, 1681069, 1847309, 1957397],
-          },
-          {
-            name: 'Mantenimiento Correctivo',
-            type: 'line',
-            color: "#F44336",
-            data: [2592647, 2537761, 2211817, 1930566, 1884709, 1860801, 1734904, 1417245, 1075159, 958753, 898753],
-          }
-        ],
+        chartData: [{
+          name: "Número de rescates",
+          color: "#5EB761",
+          data: [
+            4, 9, 2, 11, 7, 6, 10, 6, 8, 7, 11
+          ]
+        },{
+          name: "Costo de rescates",
+          color: "#F44336",
+          data: [1320000, 2400000, 2160000, 1920000, 2400000, 2540000, 1860000, 1240000, 2100000, 1080000, 2280000]
+        }],
         chartOptions: {
           chart: {
             type: 'line',
@@ -94,9 +89,9 @@
             }
           }
         }
-      };
+      }
     }
-  };
+  }
 </script>
 
 <style>

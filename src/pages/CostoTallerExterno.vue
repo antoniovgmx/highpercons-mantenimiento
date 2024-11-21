@@ -3,12 +3,10 @@
     <v-layout row wrap>
       <!-- Widgets-->
       <v-flex d-flex lg6 sm6 xs12>
-        <widget icon="local_shipping" title="50 Camiones" subTitle="Flota" supTitle="Total de camiones en la flota"
-          color="#4caf50" />
+        <widget icon="local_shipping" title="$740,000" subTitle="Costo total de talleres externos" color="#4caf50" />
       </v-flex>
       <v-flex d-flex lg6 sm6 xs12>
-        <widget icon="health_and_safety " title="7 Mantenimientos Programados" subTitle="Mantenimiento Preventivo"
-          supTitle="14% Flota" color="#4caf50" />
+        <widget icon="health_and_safety " title="7 Incidentes" subTitle="Total de incidentes" color="#4caf50" />
       </v-flex>
 
       <v-flex d-flex lg12 sm6 xs12>
@@ -28,28 +26,23 @@
           chartData: [{
             name: "Costo",
             data: [3200000, 1700000, 950000, 510000, 250000, 134000, 54000, 22000],
-            type: "bar",
+            // type: "bar",
             color: "#4caf50",
-          },{
-            name: "Porcentaje",
-            data: [46.92, 71.85, 85.78, 93.26, 96.92, 98.89, 99.68, 100.0],
-            type: "line",
-            color: "#ff7a51",
           }],
           chartOptions: {
             chart: {
               height: 350,
+              type: 'bar'
             },
+            colors: ["#F44336", "#E91E63", "#9C27B0", "#2196F3", "#00BCD4", "#FFEB3B", "#FF9800", "#607D8B"],
             plotOptions: {
               bar: {
                 columnWidth: '45%',
+                distributed: true,
               }
             },
-            stroke: {
-              width: [0, 4] // Removes stroke on bars, keeps it for the line
-            },
             title: {
-              text: 'Pareto de fallas'
+              text: 'Costo de Taller Externo por Categoría'
             },
             dataLabels: {
               enabled: false
@@ -69,7 +62,7 @@
                 "Categoría 8",
               ],
             },
-            yaxis: [{
+            yaxis: {
               seriesName: 'Costo',
               title: {
                 text: "Costo",
@@ -77,15 +70,8 @@
               labels: {
                 show: true,
                 formatter: (value) => { return value.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }) },
-            },
-            },{
-              seriesName: 'Porcentaje',
-              opposite: true,
-              title: {
-                text: "Porcentaje",
               },
-              max: 100
-            }],
+            },
             tooltip: {
               y: {
                 formatter: function (value, { series, seriesIndex, dataPointIndex }) {
