@@ -35,7 +35,7 @@
         chartOptions: {
           chart: {
             type: 'line',
-            height: 350,
+            height: 800,
             scrollable: {
               enabled: true, // Allows for panning by dragging the chart
             }
@@ -59,7 +59,7 @@
           yaxis: [
             {
               title: {
-                text: 'Mantenimiento Preventivo',
+                text: 'Número de Eventos',
               },
               labels: {
                 style: {
@@ -70,12 +70,15 @@
             {
               opposite: true,
               title: {
-                text: 'Mantenimiento Correctivo',
+                text: 'Costo Total',
               },
               labels: {
                 style: {
                   colors: '#F44336',
                 },
+                formatter: function (value) {
+                  return value.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                }
               },
             },
           ],

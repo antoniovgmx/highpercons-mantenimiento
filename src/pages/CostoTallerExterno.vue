@@ -11,7 +11,13 @@
 
       <v-flex d-flex lg12 sm6 xs12>
         <v-card class="elevation-2" style="max-width: none;" flat>
-          <apex-chart :chartOptions="chartOptions" :chartData="chartData" />
+          <apex-chart :chartOptions="costoPorCategoria.chartOptions" :chartData="costoPorCategoria.chartData" />
+        </v-card>
+      </v-flex>
+
+      <v-flex d-flex lg12 sm6 xs12>
+        <v-card class="elevation-2" style="max-width: none;" flat>
+          <apex-chart :chartOptions="eventosPorCategoria.chartOptions" :chartData="eventosPorCategoria.chartData" />
         </v-card>
       </v-flex>
 
@@ -23,18 +29,19 @@
   export default {
     data() {
       return {
+        costoPorCategoria: {
           chartData: [{
-            name: "Costo",
+          name: "Costo",
             data: [3200000, 1700000, 950000, 510000, 250000, 134000, 54000, 22000],
             // type: "bar",
             color: "#4caf50",
           }],
           chartOptions: {
             chart: {
-              height: 350,
+              height: 500,
               type: 'bar'
             },
-            colors: ["#F44336", "#E91E63", "#9C27B0", "#2196F3", "#00BCD4", "#FFEB3B", "#FF9800", "#607D8B"],
+            // colors: ["#F44336", "#E91E63", "#9C27B0", "#2196F3", "#00BCD4", "#FFEB3B", "#FF9800", "#607D8B"],
             plotOptions: {
               bar: {
                 columnWidth: '45%',
@@ -52,15 +59,27 @@
             },
             xaxis: {
               categories: [
-                "Categoría 1",
-                "Categoría 2",
-                "Categoría 3",
-                "Categoría 4",
-                "Categoría 5",
-                "Categoría 6",
-                "Categoría 7",
-                "Categoría 8",
-              ],
+                "Chasis y Largueros de Chasis",
+                "Eje delantero",
+                "Suspensión delantera",
+                "Sistema de frenos",
+                "Sistema de dirección",
+                "Flechas cardán e interejes",
+                "Sistema de escape",
+                "Sistema eléctrico",
+                "Cofre y parrilla",
+                "Miscelaneos de chasis (5ta Rueda)",
+                "Embrague y motor",
+                "Motor y radiador",
+                "Transmisión",
+                "Ejes y suspensiones traseras",
+                "Sistema de combustible y tanques",
+                "Cabina y accesorios",
+                "Rin de refacción",
+                "Rines delanteros",
+                "Rines traseros",
+                "Miscelaneos de Rines y Llantas"
+              ]
             },
             yaxis: {
               seriesName: 'Costo',
@@ -85,6 +104,70 @@
               }
             },
           },
+        },
+        eventosPorCategoria: {
+          chartData: [{
+            name: "Eventos",
+            data: [22, 15, 8, 4, 4, 2, 2, 1],
+            // type: "bar",
+            color: "#4caf50",
+          }],
+          chartOptions: {
+            chart: {
+              height: 500,
+              type: 'bar'
+            },
+            // colors: ["#F44336", "#E91E63", "#9C27B0", "#2196F3", "#00BCD4", "#FFEB3B", "#FF9800", "#607D8B"],
+            plotOptions: {
+              bar: {
+                columnWidth: '45%',
+                distributed: true,
+              }
+            },
+            title: {
+              text: 'Eventos de Taller Externo por Categoría'
+            },
+            dataLabels: {
+              enabled: false
+            },
+            legend: {
+              show: true
+            },
+            xaxis: {
+              categories: [
+                "Sistema de escape",
+                "Suspensión delantera",
+                "Sistema de dirección",
+                "Sistema de frenos",
+                "Eje delantero",
+                "Flechas cardán e interejes",
+                "Sistema eléctrico",
+                "Chasis y Largueros de Chasis",
+                "Cofre y parrilla",
+                "Miscelaneos de chasis (5ta Rueda)",
+                "Embrague y motor",
+                "Motor y radiador",
+                "Transmisión",
+                "Ejes y suspensiones traseras",
+                "Sistema de combustible y tanques",
+                "Cabina y accesorios",
+                "Rin de refacción",
+                "Rines delanteros",
+                "Rines traseros",
+                "Miscelaneos de Rines y Llantas"
+              ],
+            },
+            yaxis: {
+              seriesName: 'Eventos',
+              title: {
+                text: "Eventos",
+              },
+              labels: {
+                show: true,
+              },
+            },
+          },
+        }
       }
     }
   }  

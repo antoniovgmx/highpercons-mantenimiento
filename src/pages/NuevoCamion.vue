@@ -13,11 +13,10 @@
               <v-layout row wrap>
                 <v-flex xs12 md6>
                   <v-text-field
-                    v-model="NIV"
+                    v-model="numero_economico"
                     :rules="campoRequerido"
-                    :counter="17"
-                    label="Número de identificación vehicular"
-                    hint="XX-XXX-XXX"
+                    label="Número económico"
+                    hint="XXXXXXXXXX"
                     persistent-hint
                     required
                   ></v-text-field>
@@ -31,6 +30,32 @@
                     hint="XX-XX-XX"
                     persistent-hint
                     required
+                  ></v-text-field>
+                </v-flex>
+              </v-layout>
+
+              <v-layout row wrap>
+                <v-flex xs12 md6>
+                  <v-text-field
+                    v-model="NIV"
+                    :rules="campoRequerido"
+                    :counter="17"
+                    label="Número de identificación vehicular"
+                    hint="XX-XXX-XXX"
+                    persistent-hint
+                    required
+                  ></v-text-field>
+                </v-flex>
+
+                <v-flex xs12 md6>
+                  <v-text-field
+                    v-model="propietario"
+                    :rules="campoRequerido"
+                    label="Propietario"
+                    hint="No modificable"
+                    persistent-hint
+                    required
+                    disabled
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -79,31 +104,6 @@
                     :rules="campoRequerido"
                     label="Kilometraje"
                     hint="Ej. 350000"
-                    persistent-hint
-                    required
-                  ></v-text-field>
-                </v-flex>
-              </v-layout>
-
-              <v-layout row wrap>
-                <v-flex xs12 md6>
-                  <v-text-field
-                    v-model="propietario"
-                    :rules="campoRequerido"
-                    label="Propietario"
-                    hint="No modificable"
-                    persistent-hint
-                    required
-                    disabled
-                  ></v-text-field>
-                </v-flex>
-
-                <v-flex xs12 md6>
-                  <v-text-field
-                    v-model="numero_economico"
-                    :rules="campoRequerido"
-                    label="Número económico"
-                    hint="XXXXXXXXXX"
                     persistent-hint
                     required
                   ></v-text-field>

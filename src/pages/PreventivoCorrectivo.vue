@@ -40,7 +40,7 @@
         chartOptions: {
           chart: {
             type: 'line',
-            height: 350,
+            height: 800,
             scrollable: {
               enabled: true, // Allows for panning by dragging the chart
             }
@@ -70,6 +70,9 @@
                 style: {
                   colors: '#5EB761',
                 },
+                formatter: function (value) {
+                  return value.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                }
               },
             },
             {
@@ -81,6 +84,9 @@
                 style: {
                   colors: '#F44336',
                 },
+                formatter: function (value) {
+                  return value.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                }
               },
             },
           ],

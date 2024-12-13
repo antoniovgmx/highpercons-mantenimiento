@@ -11,12 +11,12 @@
       </router-link>
     </v-toolbar>
     <v-list>
-      <v-list-tile @click="changeRoute('tablero', 1)">
+      <!-- <v-list-tile @click="changeRoute('tablero', 1)">
         <v-list-tile-action>
           <v-icon>dashboard</v-icon>
         </v-list-tile-action>
         <v-list-tile-title :class="[{'active': selectedIndex === 1}, 'item-title' ]" >Tablero de métricas</v-list-tile-title>
-      </v-list-tile>
+      </v-list-tile> -->
       <v-list-tile @click="changeRoute('camiones', 2)">
         <v-list-tile-action>
           <v-icon>list</v-icon>
@@ -59,7 +59,7 @@
         </v-list-tile-action>
         <v-list-tile-title :class="[{'active': selectedIndex === 8}, 'item-title' ]">Salida de Taller</v-list-tile-title>
       </v-list-tile>
-      <v-list-tile @click="changeRoute('Media', 9)">
+      <v-list-tile @click="changeRoute('incidente', 9)">
         <v-list-tile-action>
           <v-icon>car_crash</v-icon>
         </v-list-tile-action>
@@ -76,41 +76,47 @@
           </v-list-tile-action>
           <v-list-tile-title :class="[{'active': selectedIndex === 10}, 'item-title' ]">Disponibilidad</v-list-tile-title>
         </v-list-tile>
-        <v-list-tile @click="changeRoute('dwellTime', 11)">
+        <v-list-tile @click="changeRoute('costoMantenimiento', 11)">
           <v-list-tile-action>
-            <v-icon>highlight_remove</v-icon>
+            <v-icon>attach_money</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title :class="[{'active': selectedIndex === 11}, 'item-title' ]">Tiempo de Estancia</v-list-tile-title>
+          <v-list-tile-title :class="[{'active': selectedIndex === 11}, 'item-title' ]">Costo de Mantenimiento</v-list-tile-title>
         </v-list-tile>
-        <v-list-tile @click="changeRoute('cumplimientoPreventivo', 12)">
+        <v-list-tile @click="changeRoute('dwellTime', 12)">
+          <v-list-tile-action>
+            <v-icon>car_repair</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 12}, 'item-title' ]">Tiempo de Estancia</v-list-tile-title>
+        </v-list-tile>
+        <v-list-tile @click="changeRoute('cumplimientoPreventivo', 13)">
           <v-list-tile-action>
             <v-icon>checklist</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title :class="[{'active': selectedIndex === 12}, 'item-title' ]">Cumplimiento Preventivo</v-list-tile-title>
+          <v-list-tile-title :class="[{'active': selectedIndex === 13}, 'item-title' ]">Cumplimiento Preventivo</v-list-tile-title>
         </v-list-tile>
-        <v-list-tile @click="changeRoute('preventivoCorrectivo', 13)">
+        <v-list-tile @click="changeRoute('preventivoCorrectivo', 14)">
           <v-list-tile-action>
-            <v-icon>ssid_chart</v-icon>
+            <v-icon>line_axis</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title :class="[{'active': selectedIndex === 13}, 'item-title' ]">Preventivo vs Correctivo</v-list-tile-title>
+          <v-list-tile-title :class="[{'active': selectedIndex === 14}, 'item-title' ]">Preventivo vs Correctivo</v-list-tile-title>
         </v-list-tile>
-        <v-list-tile @click="changeRoute('paretoDeFallas', 14)">
+        <v-list-tile @click="changeRoute('paretoDeFallas', 15)">
           <v-list-tile-action>
-            <v-icon>ssid_chart</v-icon>
+            <v-icon>multiline_chart</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title :class="[{'active': selectedIndex === 14}, 'item-title' ]">Pareto de Fallas</v-list-tile-title>
+          <v-list-tile-title :class="[{'active': selectedIndex === 15}, 'item-title' ]">Pareto de Fallas</v-list-tile-title>
         </v-list-tile>
-        <v-list-tile @click="changeRoute('costoTallerExterno', 15)">
+        <v-list-tile @click="changeRoute('costoTallerExterno', 16)">
           <v-list-tile-action>
-            <v-icon>ssid_chart</v-icon>
+            <v-icon>bar_chart</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title :class="[{'active': selectedIndex === 15}, 'item-title' ]">Costo de taller externo</v-list-tile-title>
+          <v-list-tile-title :class="[{'active': selectedIndex === 16}, 'item-title' ]">Costo de taller externo</v-list-tile-title>
         </v-list-tile>
-        <v-list-tile @click="changeRoute('rescatesPorMes', 16)">
+        <v-list-tile @click="changeRoute('rescatesPorMes', 17)">
           <v-list-tile-action>
-            <v-icon>ssid_chart</v-icon>
+            <v-icon>health_and_safety</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title :class="[{'active': selectedIndex === 16}, 'item-title' ]">Rescates por mes</v-list-tile-title>
+          <v-list-tile-title :class="[{'active': selectedIndex === 17}, 'item-title' ]">Rescates por mes</v-list-tile-title>
         </v-list-tile>
       </v-list-group>
       

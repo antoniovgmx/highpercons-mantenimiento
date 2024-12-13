@@ -39,7 +39,8 @@
         }],
         chartOptions: {
           chart: {
-            id: 'vuechart-example'
+            id: 'vuechart-example',
+            height: 800,
           },
           xaxis: {
             categories: [

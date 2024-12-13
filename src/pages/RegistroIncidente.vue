@@ -16,7 +16,6 @@
                     :rules="campoRequerido"
                     label="Número económico"
                     hint="XXXXXXXXXX"
-                    persistent-hint
                     required
                   ></v-text-field>
                 </v-flex>
@@ -74,11 +73,12 @@
                     :rules="campoRequerido"
                     label="Kilometraje"
                     required
+                    disabled
                   ></v-text-field>
                 </v-flex>
               </v-layout>
 
-              <!-- <v-layout row wrap>
+              <v-layout row wrap>
                 <v-flex xs12 md6>
                   <v-text-field
                     v-model="propietario"
@@ -91,21 +91,41 @@
 
                 <v-flex xs12 md6>
                   <v-text-field
-                    v-model="numero_economico"
+                    v-model="NIV"
                     :rules="campoRequerido"
-                    label="Número económico"
-                    hint="XXXXXXXXXX"
+                    :counter="17"
+                    label="Número de identificación vehicular"
+                    hint="XX-XXX-XXX"
+                    persistent-hint
                     required
                     disabled
                   ></v-text-field>
                 </v-flex>
-              </v-layout> -->
+              </v-layout>
 
               <v-layout row wrap>
                 <v-flex xs12 md6>
                   <v-text-field
-                    v-model="fecha_salida"
-                    label="Fecha de salida"
+                    v-model="nombre_responsable"
+                    label="Nombre del responsable"
+                    disabled
+                  ></v-text-field>
+                </v-flex>
+
+                <v-flex xs12 md6>
+                  <v-text-field
+                    v-model="contacto_responsable"
+                    label="Contacto del responsable"
+                    disabled
+                  ></v-text-field>
+                </v-flex>
+              </v-layout>
+
+              <v-layout row wrap>
+                <v-flex xs12 md6>
+                  <v-text-field
+                    v-model="fecha_incidente"
+                    label="Fecha del incidente / siniestro"
                     hint="DD/MM/AAAA"
                     persistent-hint
                   ></v-text-field>
@@ -113,27 +133,31 @@
 
                 <v-flex xs12 md6>
                   <v-text-field
-                    v-model="destino"
-                    label="Destino"
-                    hint="Ej. Ciudad de México, MX"
+                    v-model="hora_incidente"
+                    label="Hora del incidente / siniestro"
+                    hint="HH:MM"
                     persistent-hint
                   ></v-text-field>
                 </v-flex>
+
               </v-layout>
 
               <v-layout row wrap>
-                <v-flex xs12 md6>
+                <!-- <v-flex xs12 md6>
                   <v-text-field
-                    v-model="nombre_operador"
-                    label="Nombre del operador"
+                    v-model="contacto_responsable"
+                    label="Contacto del responsable"
                   ></v-text-field>
-                </v-flex>
+                </v-flex> -->
+
+                
 
                 <v-flex xs12 md6>
-                  <v-text-field
-                    v-model="contacto_operador"
-                    label="Contacto del operador"
-                  ></v-text-field>
+                  <v-checkbox
+                    v-model="checkbox"
+                    label="Registrar camión como fuera de servicio"
+                    required
+                  ></v-checkbox>
                 </v-flex>
               </v-layout>
 
@@ -141,9 +165,9 @@
                 <v-flex xs12 md12>
                   <v-textarea
                     v-model="costo_mantenimiento"
-                    label="Comentarios adicionales"
-                    hint="Comentarios adicionales de la reparación o mantenimiento"
-                    :counter="1000"
+                    label="Comentarios del incidente"
+                    hint="Descripción del incidente, situación, afectaciones, etc."
+                    :counter="3000"
                     persistent-hint
                   ></v-textarea>
                 </v-flex>
@@ -179,7 +203,7 @@ export default {
       emailRules: [v => !!v || 'Email is required', v => /.+@.+\..+/.test(v) || 'Email must be valid'],
       campoRequerido: [v => !!v || 'Este campo es requerido'],
       items: ['Item 1', 'Item 2', 'Item 3'],
-      estados: ['Garage', 'Ruta', 'Mantenimiento', 'Reparación', 'Chocado', 'Robado']
+      estados: ['Garage', 'Ruta', 'Mantenimiento', 'Reparación', 'Chocado', 'Robado'],
     };
   },
   methods: {

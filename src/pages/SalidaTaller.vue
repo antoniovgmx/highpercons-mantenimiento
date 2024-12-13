@@ -27,10 +27,9 @@
                 <v-layout row wrap>
                   <v-flex xs12 md6>
                     <v-text-field
-                      v-model="NIV"
-                      :counter="17"
-                      label="Número de identificación vehicular"
-                      hint="XX-XXX-XXX"
+                      v-model="numero_economico"
+                      label="Número económico"
+                      hint="XXXXXXXXXX"
                       persistent-hint
                     ></v-text-field>
                   </v-flex>
@@ -100,10 +99,12 @@
 
                   <v-flex xs12 md6>
                     <v-text-field
-                      v-model="numero_economico"
-                      label="Número económico"
-                      hint="XXXXXXXXXX"
+                      v-model="NIV"
+                      :counter="17"
+                      label="Número de identificación vehicular"
+                      hint="XX-XXX-XXX"
                       persistent-hint
+                      disabled
                     ></v-text-field>
                   </v-flex>
                 </v-layout>

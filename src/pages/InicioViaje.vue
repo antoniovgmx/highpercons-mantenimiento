@@ -12,11 +12,10 @@
               <v-layout row wrap>
                 <v-flex xs12 md6>
                   <v-text-field
-                    v-model="NIV"
+                    v-model="numero_economico"
                     :rules="campoRequerido"
-                    :counter="17"
-                    label="Número de identificación vehicular"
-                    hint="XX-XXX-XXX"
+                    label="Número económico"
+                    hint="XXXXXXXXXX"
                     persistent-hint
                     required
                   ></v-text-field>

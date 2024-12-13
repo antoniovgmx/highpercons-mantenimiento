@@ -19,6 +19,7 @@ import InicioViaje from '../pages/InicioViaje.vue';
 import FinViaje from '../pages/FinViaje.vue';
 import EntradaTaller from '../pages/EntradaTaller.vue';
 import SalidaTaller from '../pages/SalidaTaller.vue';
+import RegistroIncidente from '../pages/RegistroIncidente.vue';
 
 import Tablero from '../pages/Tablero.vue';
 
@@ -30,7 +31,7 @@ import CumplimientoPreventivo from '../pages/CumplimientoPreventivo.vue'
 import ParetoDeFallas from '../pages/ParetoDeFallas.vue'
 import CostoTallerExterno from '../pages/CostoTallerExterno.vue'
 import RescatesPorMes from '../pages/RescatesPorMes.vue'
-
+import costoMantenimiento from '../pages/CostoMantenimiento.vue'
 
 
 Vue.use(Router);
@@ -113,6 +114,17 @@ export default new Router({
       meta: {
         breadcrumb: [
           { name: 'Registrar Salida de Taller' }
+        ]
+      }
+    },
+
+    {
+      path: '/incidente',
+      name: 'incidente',
+      component: RegistroIncidente,
+      meta: {
+        breadcrumb: [
+          { name: 'Registrar Incidente o Siniestro' }
         ]
       }
     },
@@ -201,6 +213,17 @@ export default new Router({
       meta: {
         breadcrumb: [
           { name: 'Rescates Por Mes' }
+        ]
+      }
+    },
+
+    {
+      path: '/costoMantenimiento',
+      name: 'costoMantenimiento',
+      component: costoMantenimiento,
+      meta: {
+        breadcrumb: [
+          { name: 'Costo de Mantenimiento' }
         ]
       }
     },

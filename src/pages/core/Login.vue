@@ -7,8 +7,8 @@
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img src="static/logo.png" alt="Vue Material Admin" width="180" height="180">
-                  <h1 class="flex my-4 primary--text">Vue Admin Template</h1>
+                  <!-- <img src="static/highpercons-condensed-logo.png" alt="Vue Material Admin" width="180" height="180"> -->
+                  <h1 class="flex my-4 primary--text">Plataforma de Mantenimiento (ALPHA)</h1>
                 </div>
                 <v-form>
                   <v-text-field
@@ -54,14 +54,14 @@ export default {
   data() {
     return {
       loading: false,
-      userEmail: 'admin@yopmail.com',
-      password: '123456',
+      userEmail: 'usuario@compañía.com',
+      password: 'contraseña',
       hidePassword: true,
       error: false,
       showResult: false,
       result: '',
       rules: {
-        required: value => !!value || 'Required.'
+        required: value => !!value || 'Campo Requerido.'
       }
     }
   },
@@ -72,18 +72,18 @@ export default {
 
       if (!vm.userEmail || !vm.password) {
 
-        vm.result = "Email and Password can't be null.";
+        vm.result = "Email y Contraseña no pueden estar vacíos.";
         vm.showResult = true;
 
         return;
       }
 
       if (vm.userEmail === vm.$root.userEmail && vm.password === vm.$root.userPassword) {
-        vm.$router.push({ name: 'Dashboard' });
+        vm.$router.push({ name: 'camiones' });
       }
       else {
         vm.error = true;
-        vm.result = "Email or Password is incorrect.";
+        vm.result = "Email o Contraseña son incorrectos.";
         vm.showResult = true;
       }
     }
