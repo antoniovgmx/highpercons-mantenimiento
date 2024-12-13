@@ -6,7 +6,7 @@
       <!-- <router-link :to="{ name: 'Dashboard' }">
         <img src="static/highpercons-logo.png" width="36px"></img>
       </router-link> -->
-      <router-link :to="{ name: 'Tablero' }" class="text">
+      <router-link :to="{ name: 'Camiones' }" class="text">
          HIGHPERCONS
       </router-link>
     </v-toolbar>
