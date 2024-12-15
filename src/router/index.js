@@ -233,7 +233,7 @@ export default new Router({
     // Default routes
     
     {
-      path: '/',
+      path: '/dev/',
       name: 'Dashboard',
       component: Dashboard,
       meta: {
@@ -243,7 +243,7 @@ export default new Router({
       }
     },
     {
-      path: '/mailbox',
+      path: '/dev/mailbox',
       name: 'Mailbox',
       component: Mailbox,
       meta: {
@@ -254,7 +254,7 @@ export default new Router({
       }
     },
     {
-      path: '/snackbar',
+      path: '/dev/snackbar',
       name: 'Snackbar',
       component: Snackbar,
       meta: {
@@ -265,7 +265,7 @@ export default new Router({
       }
     },
     {
-      path: '/calendar',
+      path: '/dev/calendar',
       name: 'Calendar',
       component: Calendar,
       meta: {
@@ -276,7 +276,7 @@ export default new Router({
       }
     },
     {
-      path: '/social',
+      path: '/dev/social',
       name: 'Social',
       component: Social,
       meta: {
@@ -287,7 +287,7 @@ export default new Router({
       }
     },
     {
-      path: '/media',
+      path: '/dev/media',
       name: 'Media',
       component: Media,
       meta: {
@@ -298,7 +298,7 @@ export default new Router({
       }
     },
     {
-      path: '/chart',
+      path: '/dev/chart',
       name: 'Chart',
       component: Chart,
       meta: {
@@ -309,7 +309,7 @@ export default new Router({
       }
     },
     {
-      path: '/login',
+      path: '/dev/login',
       name: 'Login',
       component: Login,
       meta: {
@@ -317,7 +317,7 @@ export default new Router({
       }
     },
     {
-      path: '/error',
+      path: '/dev/error',
       name: 'Error',
       component: Error,
       meta: {
