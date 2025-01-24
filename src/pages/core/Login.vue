@@ -50,6 +50,8 @@
 </template>
 
 <script>
+// import { Auth } from 'aws-amplify';
+  
 export default {
   data() {
     return {
@@ -67,6 +69,14 @@ export default {
   },
 
   methods: {
+    // async handleLogin(){
+    //   try {
+    //     await Auth.signIn(this.username, this.password);
+    //     this.$router.push({ name: 'camiones' }); // Redirect to home
+    //   } catch (err) {
+    //     this.error = err.message || 'An error occurred.';
+    //   }
+    // },
     login() {
       const vm = this;
 
@@ -91,7 +101,7 @@ export default {
 }
 </script>
 
-<style scoped lang="css">
+<style scop    ed lang="css">
   #login {
     height: 50%;
     width: 100%;

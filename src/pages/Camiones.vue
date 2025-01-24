@@ -45,9 +45,13 @@
 </template>
 
 <script>
+
+// import { Auth } from 'aws-amplify';
+
 export default {
   data() {
     return {
+      user: null,
       tableData: {
         items: [
           {
@@ -344,7 +348,14 @@ export default {
         }
       }
     }
-  }
+  },
+  // async created() {
+  //   try {
+  //     this.user = await Auth.currentAuthenticatedUser();
+  //   } catch (err){
+  //     this.$router.push({ name: 'Login' }); // Redirect to login if unauthenticated
+  //   }
+  // },
 }
 </script>
 

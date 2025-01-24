@@ -37,6 +37,7 @@ import costoMantenimiento from '../pages/CostoMantenimiento.vue'
 Vue.use(Router);
 
 export default new Router({
+  // mode: 'history',
   routes: [
 
     // Highpercons routes

@@ -4,6 +4,10 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 
+// import awsExports from './aws/aws-exports';
+// const Amplify = require('aws-amplify')
+// Amplify.configure(awsExports);
+
 import 'vuetify/dist/vuetify.min.css';
 import 'font-awesome/css/font-awesome.css';
 
