@@ -36,7 +36,7 @@ import costoMantenimiento from '../pages/CostoMantenimiento.vue'
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   // mode: 'history',
   routes: [
 
@@ -47,17 +47,19 @@ export default new Router({
       name: 'camiones',
       component: Camiones,
       meta: {
+        requiresAuth: true,
         breadcrumb: [
           { name: 'Camiones' }
         ]
       }
-    },
+    }, 
 
     {
       path: '/camion/nuevo',
       name: 'nuevoCamion',
       component: NuevoCamion,
       meta: {
+        requiresAuth: true,
         breadcrumb: [
           { name: 'Nuevo Camión' }
         ]
@@ -69,6 +71,7 @@ export default new Router({
       name: 'buscarCamion',
       component: BuscarCamion,
       meta: {
+        requiresAuth: true,
         breadcrumb: [
           { name: 'Buscar Camión' }
         ]
@@ -80,6 +83,7 @@ export default new Router({
       name: 'inicioViaje',
       component: InicioViaje,
       meta: {
+        requiresAuth: true,
         breadcrumb: [
           { name: 'Registrar Inicio de Viaje' }
         ]
@@ -327,3 +331,20 @@ export default new Router({
     },
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = !!localStorage.getItem('token');
+  console.log("Here! " + !!localStorage.getItem('token)'));
+  
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!isAuthenticated) {
+      next({ name: 'Login' });
+    } else {
+      next();
+    }
+  } else {
+    next(); // always allow public routes
+  }
+});
+
+export default router;

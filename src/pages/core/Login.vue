@@ -33,7 +33,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="login" :loading="loading">Login</v-btn>
+                <v-btn block color="primary" @click="cognitoLogin" :loading="loading">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -50,7 +50,11 @@
 </template>
 
 <script>
-// import { Auth } from 'aws-amplify';
+
+import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
+import { userPool } from '../../cognitoConfig'; // Import the Cognito User Pool configuration
+
+import CryptoJS from 'crypto-js';
   
 export default {
   data() {
@@ -69,14 +73,7 @@ export default {
   },
 
   methods: {
-    // async handleLogin(){
-    //   try {
-    //     await Auth.signIn(this.username, this.password);
-    //     this.$router.push({ name: 'camiones' }); // Redirect to home
-    //   } catch (err) {
-    //     this.error = err.message || 'An error occurred.';
-    //   }
-    // },
+
     login() {
       const vm = this;
 
@@ -96,7 +93,52 @@ export default {
         vm.result = "Email o Contraseña son incorrectos.";
         vm.showResult = true;
       }
-    }
+    },
+    cognitoLogin() {
+      this.loading = true;
+
+      const computeSecretHash = (username, clientId, clientSecret) => {
+        const message = username + clientId;
+        const hmac = CryptoJS.HmacSHA256(message, clientSecret);
+        return CryptoJS.enc.Base64.stringify(hmac);
+      };
+
+      const authDetails = new AuthenticationDetails({
+        Username: this.userEmail,
+        Password: this.password,
+        SecretHash: computeSecretHash(
+          this.userEmail,
+          "62hanemkliqkqbadao2sauujr2",
+          "dqmpjpdkbqs3np644bco80lvv8i4m37qhs95g17vb7gvsfpur58"
+        ),
+      });
+
+      const cognitoUser = new CognitoUser({
+        Username: this.userEmail,
+        Pool: userPool,
+      });
+
+      cognitoUser.authenticateUser(authDetails, {
+        onSuccess: (session) => {
+          console.log("Login successful!", session);
+          localStorage.setItem("token", session.getIdToken().getJwtToken());
+          this.$router.push({ name: "Camiones" });
+        },
+        onFailure: (err) => {
+          console.error("Login failed:", err);
+          this.errorMessage = err.message || "Authentication failed";
+          this.error = true;
+          this.result = "Email o Contraseña son incorrectos.";
+          this.showResult = true;
+        },
+        newPasswordRequired: (userAttributes) => {
+          console.log("New password required:", userAttributes);
+          this.errorMessage = "New password required.";
+        },
+      });
+
+      this.loading = false;
+    },
   }
 }
 </script>

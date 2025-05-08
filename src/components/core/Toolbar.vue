@@ -191,6 +191,7 @@ export default {
           href: '#',
           title: 'Log Out',
           click: () => {
+            localStorage.removeItem('token');
             const vm = this;
 
             vm.$router.push({ name: 'Login' });
