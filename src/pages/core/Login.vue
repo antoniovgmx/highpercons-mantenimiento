@@ -94,6 +94,7 @@ export default {
         vm.showResult = true;
       }
     },
+    // AWS Login
     cognitoLogin() {
       this.loading = true;
 
@@ -122,7 +123,7 @@ export default {
         onSuccess: (session) => {
           console.log("Login successful!", session);
           localStorage.setItem("token", session.getIdToken().getJwtToken());
-          this.$router.push({ name: "Camiones" });
+          this.$router.push({ name: "camiones" });
         },
         onFailure: (err) => {
           console.error("Login failed:", err);
