@@ -12,6 +12,37 @@
     <script async src="https://api.glia.com/salemove_integration.js"></script>
 </head>
 
+  <button id="chat-bubble" aria-label="Chat with us">Chat with us</button>
+
+<script>
+  sm.getApi({ version: 'v1' }).then(function (salemove) {
+    var CHAT_QUEUE_NAME = 'Sales'; // your chat queue name
+    var bubble = document.getElementById('chat-bubble');
+
+    // Resolve the queue id once
+    var chatQueueId = null;
+    salemove.getQueues().then(function (queues) {
+      chatQueueId = queues
+        .filter(function (q) { return q.name === CHAT_QUEUE_NAME; })
+        .map(function (q) { return q.id; })[0];
+    });
+
+    // Hide the bubble when the queue can't take engagements
+    salemove.addEventListener(salemove.EVENTS.QUEUE_STATE_UPDATE, function (queueState) {
+      bubble.style.display =
+        queueState.state === queueState.QUEUE_STATES.CAN_QUEUE ? 'inline-flex' : 'none';
+    });
+
+    // One click → straight into chat, no media selector
+    bubble.addEventListener('click', function () {
+      salemove
+        .queueForEngagement('text', { queueId: chatQueueId })
+        .catch(function (err) { console.error('Failed to start chat', err); });
+    });
+  });
+</script>
+
+
 <body>
     <div id=app></div>
     <script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script>
